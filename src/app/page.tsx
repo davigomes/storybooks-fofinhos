@@ -1,103 +1,90 @@
-import Image from "next/image";
+import StoryCard from "../components/StoryCard";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const stories = [
+    {
+      title: "A Doce Partilha de Cecília e Sofia",
+      imageUrl: "/images/A Doce Partilha de Cecília e Sofia.jpg",
+    },
+    {
+      title: "A Grande Conquista de Sofia",
+      imageUrl: "/images/A Grande Conquista de Sofia.jpg",
+    },
+    {
+      title: "A Pescaria Mágica de Sofia",
+      imageUrl: "/images/A Pescaria Mágica de Sofia.jpg",
+    },
+    {
+      title: "A Primeira Aventura de Sofia",
+      imageUrl: "/images/A Primeira Aventura de Sofia.jpg",
+    },
+    {
+      title: "A Primeira Visita à Fazenda",
+      imageUrl: "/images/A Primeira Visita à Fazenda.jpg",
+    },
+    {
+      title: "A Sofia e o Sorvete de Chocolate",
+      imageUrl: "/images/A Sofia e o Sorvete de Chocolate.jpg",
+    },
+    {
+      title: "As Irmãs em Fátima",
+      imageUrl: "/images/As Irmãs em Fátima.jpg",
+    },
+    {
+      title: "As Orações de Sofia e Cecília",
+      imageUrl: "/images/As Orações de Sofia e Cecília.jpg",
+    },
+    {
+      title: "Cecília e o Segredo dos Passarinhos",
+      imageUrl: "/images/Cecília e o Segredo dos Passarinhos.jpg",
+    },
+    {
+      title: "O Almoço Mágico da Sofia",
+      imageUrl: "/images/O Almoço Mágico da Sofia.jpg",
+    },
+    {
+      title: "O Primeiro Dia de Cecília na Escola",
+      imageUrl: "/images/O Primeiro Dia de Cecília na Escola.jpg",
+    },
+    {
+      title: "O Sorvete de Chocolate da Sofia",
+      imageUrl: "/images/O Sorvete de Chocolate da Sofia.jpg",
+    },
+    {
+      title: "Sofia e Cecília na Fazenda",
+      imageUrl: "/images/Sofia e Cecília na Fazenda.jpg",
+    },
+    {
+      title: "Sofia e o Trenzinho Compartilhado",
+      imageUrl: "/images/Sofia e o Trenzinho Compartilhado.jpg",
+    },
+    {
+      title: "Sofia e os Livros Compartilhados",
+      imageUrl: "/images/Sofia e os Livros Compartilhados.jpg",
+    },
+    {
+      title: "Sofia e os Peixinhos",
+      imageUrl: "/images/Sofia e os Peixinhos.jpg",
+    },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+  return (
+    <main className="min-h-screen bg-white flex flex-col items-center px-2 py-6 sm:px-4 md:px-8">
+      <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-2 tracking-tight">
+        Histórias Para Ninar
+      </h1>
+      <p className="text-base sm:text-lg text-gray-500 text-center mb-6 max-w-md">
+        Selecione uma história para ler antes de dormir.
+      </p>
+      <section className="w-full max-w-3xl grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+        {stories.map((story, index) => (
+          <StoryCard
+            key={index}
+            title={story.title}
+            imageUrl={story.imageUrl}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        ))}
+      </section>
+    </main>
   );
 }
