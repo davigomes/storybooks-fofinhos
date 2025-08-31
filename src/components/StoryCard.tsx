@@ -3,12 +3,13 @@ import Image from "next/image";
 interface StoryCardProps {
   title: string;
   imageUrl: string;
+  href: string;
 }
 
-export default function StoryCard({ title, imageUrl }: StoryCardProps) {
+export default function StoryCard({ title, imageUrl, href }: StoryCardProps) {
   return (
     <a
-      href="https://gemini.google.com/share/d46552ad738f"
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className="block h-full"
